@@ -44,18 +44,6 @@ export default function Register() {
         setError(data.message)
       }
     }
-
-
-    /* setIsLoading(true);
-    setError();
-    let {data} = await axios.post(`https://routeegypt.herokuapp.com/signup`, user);
-    if(data.message=== "success"){
-      setIsLoading(false);
-      console.log("Successfully Registered" + data.message);
-    } else{
-      setIsLoading(false);
-      setError(data.message)
-    } */
   }
 
   /* Start Of Validation Function */
