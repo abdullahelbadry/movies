@@ -9,6 +9,7 @@ import People from './components/People/People';
 import TVShow from './components/TVShow/TVShow';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import Logout from './components/Logout/Logout';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='People' element={<People/>} />
           <Route path='TVShow' element={<TVShow/>} />
           <Route path='Login' element={<Login/>} />
+          <Route path='Logout' element={<Logout/>} />
           <Route path='Register' element={<Register/>} />
           <Route path='*' element={<h2>Page Not Found</h2>} />
         </Routes>
