@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import Joi from 'joi';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Register() {
-
+  let navigate = useNavigate();
   const [errorList, setErrorList] = useState([])
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +38,7 @@ export default function Register() {
       let { data } = await axios.post(`https://routeegypt.herokuapp.com/signup`, user);
       if (data.message === "success") {
         setIsLoading(false);
-        console.log("Successfully Registered" + data.message);
+        navigate('/login')
       } else {
         setIsLoading(false);
         setError(data.message)
