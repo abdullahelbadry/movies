@@ -3,7 +3,7 @@ import axios from 'axios';
 import Joi from 'joi';
 import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Login(props) {
   let navigate = useNavigate();
   const [errorList, setErrorList] = useState([])
   const [error, setError] = useState('')
@@ -33,8 +33,12 @@ export default function Login() {
       
       let { data } = await axios.post(`https://routeegypt.herokuapp.com/signin`, user);
       if (data.message === "success") {
+
+        localStorage.setItem('userToken', data.token)
         setIsLoading(false);
+        props.getUserData();
         navigate('/home')
+
       } else {
         setIsLoading(false);
         setError(data.message)
