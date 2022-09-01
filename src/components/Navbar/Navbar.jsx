@@ -40,10 +40,10 @@ export default function Navbar(props) {
           </ul>
           <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
             <li className='nav-item me-3 d-flex align-items-center'>
-              <i class="fa-brands mx-2 fa-facebook"></i>
-              <i class="fa-brands mx-2 fa-youtube"></i>
-              <i class="fa-brands mx-2 fa-instagram"></i>
-              <i class="fa-brands mx-2 fa-spotify"></i>
+              <i class="fa-brands mx-2 fa-facebook ico"></i>
+              <i class="fa-brands mx-2 fa-youtube ico"></i>
+              <i class="fa-brands mx-2 fa-instagram ico"></i>
+              <i class="fa-brands mx-2 fa-spotify ico"></i>
             </li>
 
             {

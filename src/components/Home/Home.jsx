@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-export default function Home() {
+import { Link } from 'react-router-dom';
+export default function Home(props) {
 
   const apiKey = '7ea44a18385def9be60a829d59b9e12b';
-  const baseImageUrl = 'https://image.tmdb.org/t/p/w500/'
+  const baseImageUrl = 'https://image.tmdb.org/t/p/w500/';
 
   let [trendingItems, setTrendingItems] = useState([]);
   let [trendingTvShows, setTrendingTvShows] = useState([]);
@@ -39,13 +40,16 @@ export default function Home() {
           </div>
           {trendingItems.map((item, index)=>
           <div key={index} className='col-md-2 my-3'>
-            <div>
-              <img className='w-100' src={baseImageUrl+item.poster_path} alt="" />
+            <Link to={'/movieDetails/'+item.id}>
+            <div className='position-relative'>
+              <div className='position-absolute top-0 end-0'><p className='bg-secondary p-1'>{parseFloat(item.vote_average).toFixed(1)}</p></div>
+              <img className='w-100 mb-2' src={baseImageUrl+item.poster_path} alt="" />
               <h4>{item.title}</h4>
             </div>
+            </Link>
           </div>)}
         </div>
-        {/* TV Shows Category */}
+        {/* TVShow Category */}
         <div className='row'>
           <div className='col-md-4 d-flex align-items-center'>
             <div>
@@ -54,17 +58,20 @@ export default function Home() {
               <h2>Trending</h2>
               <h2>TV Shows</h2>
               <h2>to watch now</h2>
-              <span className='text-muted'>Most trending TV Shows by days</span>
+              <span className='text-muted'>Most trending tv shows by days</span>
             </div>
             <div className='w-100'><hr/></div>
             </div>
           </div>
           {trendingTvShows.map((item, index)=>
           <div key={index} className='col-md-2 my-3'>
-            <div>
-              <img className='w-100' src={baseImageUrl+item.poster_path} alt="" />
+            <Link to={'/TvDetails/'+item.id}>
+            <div className='position-relative'>
+              <div className='position-absolute top-0 end-0'><p className='bg-secondary p-1'>{parseFloat(item.vote_average).toFixed(1)}</p></div>
+              <img className='w-100 mb-2' src={baseImageUrl+item.poster_path} alt="" />
               <h4>{item.name}</h4>
             </div>
+            </Link>
           </div>)}
         </div>
         {/* Person Category */}
