@@ -10,8 +10,10 @@ import TVShow from './components/TVShow/TVShow';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Logout from './components/Logout/Logout';
-import { useState, useEffect, Children } from 'react';
+import { useState, useEffect, children } from 'react';
 import jwtDecode from 'jwt-decode';
+import Moviedetails from './components/Moviedetails/Moviedetails';
+import TvDetails from './components/TVDetails/TvDetails';
 
 
 function App() {
@@ -57,6 +59,12 @@ function App() {
           <Route path='People' element={<ProtectedRoute> <People/> </ProtectedRoute>} />
           <Route path='TVShow' element={<ProtectedRoute> <TVShow/> </ProtectedRoute>} />
           <Route path='Login' element={<Login getUserData={getUserData}/>} />
+          <Route path='movieDetails' element={<Moviedetails/>} >
+            <Route path=':id' element={<Moviedetails/>}></Route>
+          </Route>
+          <Route path='TvDetails' element={<TvDetails/>} >
+            <Route path=':id' element={<TvDetails/>}></Route>
+          </Route>
           <Route path='Logout' element={<Logout/>} />
           <Route path='Register' element={<Register/>} />
           <Route path='*' element={<h2>Page Not Found</h2>} />

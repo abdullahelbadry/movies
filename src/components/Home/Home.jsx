@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-export default function Home() {
+import { Link } from 'react-router-dom';
+export default function Home(props) {
 
   const apiKey = '7ea44a18385def9be60a829d59b9e12b';
-  const baseImageUrl = 'https://image.tmdb.org/t/p/w500/'
+  const baseImageUrl = 'https://image.tmdb.org/t/p/w500/';
 
   let [trendingItems, setTrendingItems] = useState([]);
   let [trendingTvShows, setTrendingTvShows] = useState([]);
@@ -39,10 +40,13 @@ export default function Home() {
           </div>
           {trendingItems.map((item, index)=>
           <div key={index} className='col-md-2 my-3'>
-            <div>
-              <img className='w-100' src={baseImageUrl+item.poster_path} alt="" />
+            <Link to={'/movieDetails/'+item.id}>
+            <div className='position-relative'>
+              <div className='position-absolute top-0 end-0'><p className='bg-secondary p-1'>{parseFloat(item.vote_average).toFixed(1)}</p></div>
+              <img className='w-100 mb-2' src={baseImageUrl+item.poster_path} alt="" />
               <h4>{item.title}</h4>
             </div>
+            </Link>
           </div>)}
         </div>
         {/* TV Shows Category */}
