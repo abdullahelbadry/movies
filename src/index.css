@@ -19,9 +19,3 @@ a,a:hover{
   background-color: transparent !important;
   color: rgba(255,255,255,0.7) !important;
 }
-.ico:hover{
-  color: crimson !important;
-}
-span:hover{
-  cursor: pointer;
-}
