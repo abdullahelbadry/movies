@@ -7,11 +7,10 @@ export default function Navbar(props) {
     <div>
       <nav className="p-4 navbar navbar-expand-sm navbar-dark bg-transparent">
         <Link className="navbar-brand fw-bolder" to={'/'}>NOXE</Link>
-        <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="collapsibleNavId">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             {/* Check For userData if registered or not */}
             {
